@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Asha Education Trust (AET) is a leading educational trust committed to empowering young minds with industry-relevant skills in healthcare, paramedical, elevator mechanics, and CSR vocational programs.">
-  <meta name="keywords" content="Asha Education Trust, NSDC approved, healthcare training, nursing courses, paramedical, lift mechanic, CSR projects, Gurgaon, skill training">
+  <meta name="description" content="Asha Education Trust (AET) is a leading NSDC-approved educational trust bridging the gap between classroom education and technical industry requirements through healthcare, paramedical, lift mechanics, and CSR vocational programs.">
+  <meta name="keywords" content="Asha Education Trust, NSDC approved, healthcare training, nursing courses, paramedical, lift mechanic, CSR projects, Gurgaon, skill training, HSSC approved">
   <meta name="author" content="Asha Education Trust">
   
-  <title>Asha Education Trust | Empowering Youth through Skilling</title>
+  <title>Asha Education Trust | Leaders in Paramedical & Skilling Education</title>
   
   <!-- CSS Stylesheet -->
   <link rel="stylesheet" href="style.css">
@@ -17,428 +17,773 @@
 </head>
 <body>
 
-  <!-- --- HEADER & NAVIGATION --- -->
-  <header id="site-header">
-    <div class="container nav-wrapper">
-      <a href="#home" class="logo" id="logo-link">
-        <img src="images/logo.png" alt="Asha Education Trust Logo" id="logo-img">
-      </a>
-      
-      <nav aria-label="Main Navigation">
-        <button class="nav-toggle" id="menu-toggle" aria-expanded="false" aria-label="Toggle navigation">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <ul class="nav-menu" id="nav-menu">
-          <li><a href="#home" class="nav-link active" id="nav-home">Home</a></li>
-          <li><a href="#about" class="nav-link" id="nav-about">About Us</a></li>
-          <li><a href="#programs" class="nav-link" id="nav-programs">Programs</a></li>
-          <li><a href="#csr" class="nav-link" id="nav-csr">CSR Execution</a></li>
-          <li><a href="#gallery" class="nav-link" id="nav-gallery">Gallery</a></li>
-          <li><a href="#contact" class="nav-link" id="nav-contact">Contact</a></li>
-        </ul>
-      </nav>
-      
-      <div class="header-contact" id="header-contact-info">
-        <div class="contact-icon">
-          <span>📞</span>
-        </div>
-        <div class="contact-info">
-          <span class="contact-label">Get Help 24/7</span>
-          <a href="tel:+91118766243439" class="contact-val" id="header-phone">+91-11-8766243439</a>
+  <!-- --- HEADER & NAVIGATION (DUAL NAVIGATION STYLE) --- -->
+  <header class="site-header" id="site-header">
+    
+    <!-- Secondary Thin Header -->
+    <div class="secondary-header">
+      <div class="container">
+        <nav class="secondary-nav" aria-label="Secondary Navigation">
+          <a href="#about" class="sec-link">About Us</a>
+          <a href="#campuses" class="sec-link">Our Campuses</a>
+          <a href="#programs" class="sec-link">Programs Catalog</a>
+          <a href="#edge" class="sec-link">The AET Edge</a>
+          <a href="#contact" class="sec-link">Support Desk</a>
+        </nav>
+      </div>
+    </div>
+    
+    <!-- Primary Navigation Header -->
+    <div class="primary-header">
+      <div class="container">
+        <a href="#home" class="logo-container" id="logo-link">
+          <img src="images/logo.png" alt="Asha Education Trust Logo" id="logo-img">
+        </a>
+        
+        <nav aria-label="Primary Navigation">
+          <ul class="nav-links" id="nav-links">
+            <li>
+              <a href="#home" class="nav-item-link active" id="nav-home">Home</a>
+            </li>
+            <li>
+              <a href="#programs" class="nav-item-link" id="nav-programs">
+                Programs
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em"><path fill="currentColor" fill-rule="evenodd" d="M16.53 9.47a.75.75 0 0 1 0 1.06L12 15.06l-4.53-4.53a.75.75 0 1 1 1.06-1.06L12 12.94l3.47-3.47a.75.75 0 0 1 1.06 0" clip-rule="evenodd"></path></svg>
+              </a>
+            </li>
+            <li>
+              <a href="#campuses" class="nav-item-link" id="nav-campuses">Campuses</a>
+            </li>
+            <li>
+              <a href="#about" class="nav-item-link" id="nav-about">About Us</a>
+            </li>
+            <li>
+              <a href="#gallery" class="nav-item-link" id="nav-gallery">Gallery</a>
+            </li>
+            <li>
+              <a href="#contact" class="nav-item-link" id="nav-contact">Contact</a>
+            </li>
+          </ul>
+        </nav>
+        
+        <div class="header-actions">
+          <a href="#contact" class="btn btn-primary" id="header-cta-btn">Apply Now</a>
+          
+          <button class="nav-toggle-btn" id="menu-toggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
       </div>
     </div>
   </header>
 
   <!-- --- HERO SECTION --- -->
-  <section class="hero" id="home">
+  <section class="hero-section" id="home">
     <div class="container">
-      <div class="hero-content">
-        <span class="hero-sub">Empowering YOUTH</span>
-        <h1 class="hero-title">Join us in transforming lives through skilling.</h1>
-        <p class="hero-desc">We bridge the gap between classroom education and technical industry requirements to prepare students for professional success and sustainable livelihood generation.</p>
-        <div class="hero-actions">
-          <a href="#about" class="btn btn-primary" id="hero-btn-primary">Get Involved</a>
-          <a href="#contact" class="btn btn-outline-white" id="hero-btn-secondary">Contact Us</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- --- VISION & MISSION CARDS --- -->
-  <section class="mv-section">
-    <div class="container">
-      <div class="mv-grid">
-        <div class="mv-card" id="card-vision">
-          <div class="mv-icon">👁️</div>
-          <h4 class="mv-card-title">Our Vision</h4>
-          <p class="mv-card-desc">To build a skilled and self-reliant youth community by creating easy access to quality technical training, industrial exposure, and employment assistance across specialized sectors.</p>
-        </div>
-        <div class="mv-card" id="card-mission">
-          <div class="mv-icon">🚀</div>
-          <h4 class="mv-card-title">Our Mission</h4>
-          <p class="mv-card-desc"><strong>SKILLING FOR LIVELIHOOD GENERATION.</strong> Committed to empowering young minds with industry-relevant skills in healthcare, paramedical, and elevator technician sectors, ensuring a brighter, sustainable future.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- --- WHO WE ARE SECTION --- -->
-  <section class="section" id="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-img-box" id="about-image">
-          <img src="images/science-lab.jpg" alt="Asha Trust Skill Training Classroom">
-        </div>
-        <div class="about-content">
-          <span class="title-sub">Who We Are</span>
-          <h2 class="title-main">About Asha Education Trust</h2>
-          <p class="about-text">
-            Asha Education Trust is committed to empowering young minds with industry-relevant skills in the healthcare and elevator technician sectors. We provide quality training that equips students with the technical and practical knowledge needed for employment. 
-          </p>
-          <p class="about-text" style="margin-top: 15px;">
-            Our mission is to bridge the gap between education and industry by offering hands-on learning and job placement, ensuring our students become skilled professionals ready to contribute to their respective fields. We aim for their brighter future by earning a decent living for themselves.
-          </p>
+      <div class="hero-rounded-card">
+        
+        <!-- Left Hero Content -->
+        <div class="hero-left-content">
+          <a href="#contact" class="scholarship-badge" aria-label="AET Scholarship details">
+            <span class="badge-icon">
+              <svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+            </span>
+            <div>
+              <strong>Scholarship</strong> <span class="badge-tag">NEW</span>
+              <span>Fully sponsored CSR seats available</span>
+            </div>
+            <span class="badge-arrow">→</span>
+          </a>
           
-          <ul class="about-points" id="about-checklist">
-            <li class="about-point">
-              <span class="about-point-icon">✓</span>
-              <span class="about-point-text">7 years of experience conducting skill-based vocational trainings.</span>
-            </li>
-            <li class="about-point">
-              <span class="about-point-icon">✓</span>
-              <span class="about-point-text">Approved by National Skill Development Corporation (NSDC) under Ministry of Skill Development & Entrepreneurship.</span>
-            </li>
-            <li class="about-point">
-              <span class="about-point-icon">✓</span>
-              <span class="about-point-text">Approved by Healthcare Sector Skill Council (HSSC).</span>
-            </li>
-            <li class="about-point">
-              <span class="about-point-icon">✓</span>
-              <span class="about-point-text">Equipped with AC Multimedia Classrooms and latest practical equipment.</span>
-            </li>
-            <li class="about-point">
-              <span class="about-point-icon">✓</span>
-              <span class="about-point-text">More than 700 candidates successfully trained and employed in leading industries.</span>
-            </li>
-            <li class="about-point">
-              <span class="about-point-icon">✓</span>
-              <span class="about-point-text">Extensive experience in CSR Project implementation for sustainable livelihood generation.</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- --- PROGRAMS CATALOGUE SECTION --- -->
-  <section class="section section-alt" id="programs">
-    <div class="container">
-      <div class="text-center">
-        <span class="title-sub">Our Programs</span>
-        <h2 class="title-main">Specialized Training Disciplines</h2>
-      </div>
-      
-      <div class="programs-grid" id="programs-grid-container">
-        
-        <!-- Card 1: Nursing -->
-        <div class="program-card" id="prog-nursing">
-          <div class="program-icon-box">
-            <div class="program-icon">🩺</div>
-          </div>
-          <div class="program-info">
-            <h4 class="program-name">Nursing Courses</h4>
-            <p class="program-desc">Comprehensive nursing foundation courses including ANM, GNM, B.Sc. (Nursing), Post Basic B.Sc. (Nursing), and CMSED certification pathways.</p>
-          </div>
-        </div>
-        
-        <!-- Card 2: Paramedical -->
-        <div class="program-card" id="prog-paramedical">
-          <div class="program-icon-box">
-            <div class="program-icon">🔬</div>
-          </div>
-          <div class="program-info">
-            <h4 class="program-name">Paramedical Degree &amp; Diploma</h4>
-            <p class="program-desc">Professional qualifications in Medical Laboratory Technology (MLT), Radiology, Operation Theatre Technology (OTT), Cardiac Care (CCT), Physiotherapy, and Hospital Management.</p>
-          </div>
-        </div>
-        
-        <!-- Card 3: Allied Healthcare -->
-        <div class="program-card" id="prog-allied">
-          <div class="program-icon-box">
-            <div class="program-icon">🏥</div>
-          </div>
-          <div class="program-info">
-            <h4 class="program-name">Allied Healthcare Training</h4>
-            <p class="program-desc">Practical quick-employability paths: Emergency Medical Technician, Nursing Assistant, Dental Assistant, and Hospital Front Desk Executive roles.</p>
-          </div>
-        </div>
-        
-        <!-- Card 4: Lift Mechanic -->
-        <div class="program-card" id="prog-lift">
-          <div class="program-icon-box">
-            <div class="program-icon">⚙️</div>
-          </div>
-          <div class="program-info">
-            <h4 class="program-name">Lift Mechanic Technician</h4>
-            <p class="program-desc">Specialized technical training covering escalator and elevator maintenance, electronic control boards, wiring safety standards, and structural repairs.</p>
-          </div>
-        </div>
-        
-        <!-- Card 5: First Responder -->
-        <div class="program-card" id="prog-responder">
-          <div class="program-icon-box">
-            <div class="program-icon">🚨</div>
-          </div>
-          <div class="program-info">
-            <h4 class="program-name">First Responder &amp; First Aid</h4>
-            <p class="program-desc">Essential life-saving emergency training modules, cardiorespiratory resuscitation (CPR), triage, and immediate trauma support standards.</p>
-          </div>
-        </div>
-        
-        <!-- Card 6: CSR Project Execution -->
-        <div class="program-card" id="prog-csr">
-          <div class="program-icon-box">
-            <div class="program-icon">💼</div>
-          </div>
-          <div class="program-info">
-            <h4 class="program-name">CSR Projects Execution</h4>
-            <p class="program-desc">Partnering with corporate organizations to design, manage, and implement educational and vocation skill development projects under Schedule VII of the Companies Act.</p>
-          </div>
-        </div>
-        
-      </div>
-    </div>
-  </section>
-
-  <!-- --- CSR HIGHLIGHTS SECTION --- -->
-  <section class="section section-accent" id="csr">
-    <div class="container">
-      <div class="csr-grid">
-        <div class="csr-content">
-          <span class="title-sub">Corporate Partnerships</span>
-          <h2 class="title-main">CSR Project Accomplishment &amp; Registrations</h2>
-          <p class="csr-desc">Asha Education Trust stands amongst the frontrunner CSR executing agencies in northern India, bringing accountability, structured vocational planning, and verified employment data to corporate CSR contributions.</p>
+          <h1 class="hero-title-main">Learn with the Leaders in Vocational Education</h1>
+          <p class="hero-desc-text">We bridge the gap between classroom education and technical industry requirements to prepare students for professional success and sustainable livelihood generation.</p>
           
-          <ul class="csr-list" id="csr-benefits">
-            <li class="csr-item">
-              <span class="csr-item-bullet">1</span>
-              <span class="csr-item-text">Registered under Income Tax Act Section 80G &amp; MCA for corporate CSR allocations.</span>
-            </li>
-            <li class="csr-item">
-              <span class="csr-item-bullet">2</span>
-              <span class="csr-item-text">Covered under Section 2 of Schedule VII of the Companies Act 2013 targeting education and employment-enhancing vocational skills.</span>
-            </li>
-            <li class="csr-item">
-              <span class="csr-item-bullet">3</span>
-              <span class="csr-item-text">Successfully completed over 10 CSR projects for leading national companies, including ONGC and HDFC.</span>
-            </li>
-            <li class="csr-item">
-              <span class="csr-item-bullet">4</span>
-              <span class="csr-item-text">Focus areas include children, women, elderly, differentially abled individuals, and general rural livelihood development.</span>
-            </li>
-          </ul>
+          <div class="hero-button-group">
+            <a href="#contact" class="btn btn-orange" id="hero-apply-btn">Apply now ↗</a>
+            <a href="#contact" class="btn btn-secondary" id="hero-counsel-btn">Talk to a counsellor</a>
+          </div>
         </div>
-        <div class="csr-img-box" id="csr-image">
-          <img src="images/csr-activities.jpg" alt="Asha Education Trust CSR project training site">
+        
+        <!-- Right Hero Image -->
+        <div class="hero-right-img">
+          <img src="images/hero-cover.jpg" alt="Asha Education Trust paramedical training students">
         </div>
+        
       </div>
     </div>
   </section>
 
-  <!-- --- IMPACT GALLERY SECTION --- -->
-  <section class="section section-alt" id="gallery">
-    <div class="container">
-      <div class="text-center">
-        <span class="title-sub">Our Work in Action</span>
-        <h2 class="title-main">Images of Impact: Asha Trust in Photos</h2>
-      </div>
+  <!-- --- PARTNERS MARQUEE SECTION --- -->
+  <section class="partners-section" id="partners">
+    <div class="container text-center">
+      <h2 class="marquee-heading">Launch Your Career with Leading Clinical &amp; Corporate Partners</h2>
       
-      <div class="gallery-grid" id="gallery-container">
-        <div class="gallery-item" data-image="images/jodhpur-classroom.jpg">
-          <img src="images/jodhpur-classroom.jpg" alt="Classroom training in Jodhpur">
-          <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
+      <div class="marquee-container">
+        
+        <!-- Row 1: Hospital/Clinical Partners (Left Scroll) -->
+        <div class="marquee-row scroll-left">
+          <div class="marquee-inner">
+            <div class="marquee-logo-card"><strong>Fortis Hospital</strong></div>
+            <div class="marquee-logo-card"><strong>Max Healthcare</strong></div>
+            <div class="marquee-logo-card"><strong>Dr. Lal PathLabs</strong></div>
+            <div class="marquee-logo-card"><strong>Lenskart</strong></div>
+            <div class="marquee-logo-card"><strong>Healthians</strong></div>
+            <div class="marquee-logo-card"><strong>Centre For Sight</strong></div>
+            <div class="marquee-logo-card"><strong>Metro Hospitals</strong></div>
+            <div class="marquee-logo-card"><strong>Pathkind Labs</strong></div>
+            <!-- Duplicate for infinite seamless scroll -->
+            <div class="marquee-logo-card"><strong>Fortis Hospital</strong></div>
+            <div class="marquee-logo-card"><strong>Max Healthcare</strong></div>
+            <div class="marquee-logo-card"><strong>Dr. Lal PathLabs</strong></div>
+            <div class="marquee-logo-card"><strong>Lenskart</strong></div>
+            <div class="marquee-logo-card"><strong>Healthians</strong></div>
+            <div class="marquee-logo-card"><strong>Centre For Sight</strong></div>
+            <div class="marquee-logo-card"><strong>Metro Hospitals</strong></div>
+            <div class="marquee-logo-card"><strong>Pathkind Labs</strong></div>
+          </div>
         </div>
-        <div class="gallery-item" data-image="images/science-lab.jpg">
-          <img src="images/science-lab.jpg" alt="Students in the science laboratory">
-          <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
+        
+        <!-- Row 2: Accreditation & CSR Corporate Sponsors (Right Scroll) -->
+        <div class="marquee-row marquee-row-reverse scroll-right">
+          <div class="marquee-inner">
+            <div class="marquee-logo-card"><strong>ONGC Corporate</strong></div>
+            <div class="marquee-logo-card"><strong>HDFC Bank</strong></div>
+            <div class="marquee-logo-card"><strong>NSDC Govt. Approved</strong></div>
+            <div class="marquee-logo-card"><strong>HSSC Healthcare</strong></div>
+            <div class="marquee-logo-card"><strong>Asha Trust Hub</strong></div>
+            <div class="marquee-logo-card"><strong>Gurugram Center</strong></div>
+            <div class="marquee-logo-card"><strong>Jodhpur Campus</strong></div>
+            <div class="marquee-logo-card"><strong>Delhi Allied Center</strong></div>
+            <!-- Duplicate for infinite seamless scroll -->
+            <div class="marquee-logo-card"><strong>ONGC Corporate</strong></div>
+            <div class="marquee-logo-card"><strong>HDFC Bank</strong></div>
+            <div class="marquee-logo-card"><strong>NSDC Govt. Approved</strong></div>
+            <div class="marquee-logo-card"><strong>HSSC Healthcare</strong></div>
+            <div class="marquee-logo-card"><strong>Asha Trust Hub</strong></div>
+            <div class="marquee-logo-card"><strong>Gurugram Center</strong></div>
+            <div class="marquee-logo-card"><strong>Jodhpur Campus</strong></div>
+            <div class="marquee-logo-card"><strong>Delhi Allied Center</strong></div>
+          </div>
         </div>
-        <div class="gallery-item" data-image="images/csr-activities.jpg">
-          <img src="images/csr-activities.jpg" alt="AET CSR skill execution site">
-          <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
-        </div>
-        <div class="gallery-item" data-image="images/mission.jpg">
-          <img src="images/mission.jpg" alt="Asha Trust Mission Showcase">
-          <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
-        </div>
-        <div class="gallery-item" data-image="images/vision.jpg">
-          <img src="images/vision.jpg" alt="Asha Trust Vision Showcase">
-          <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
-        </div>
-        <div class="gallery-item" data-image="images/hero-cover.jpg">
-          <img src="images/hero-cover.jpg" alt="Skill training classroom main header image">
-          <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
-        </div>
+        
       </div>
     </div>
   </section>
 
-  <!-- --- CONTACT SECTION --- -->
-  <section class="section" id="contact">
+  <!-- --- CAREERS STATS & IMPACT --- -->
+  <section class="section career-stats-section" id="about">
     <div class="container">
-      <div class="text-center">
-        <span class="title-sub">Get in Touch</span>
-        <h2 class="title-main">Contact Asha Education Trust</h2>
-      </div>
-      
-      <div class="contact-grid">
-        <!-- Contact Form -->
-        <div class="contact-card">
-          <h4 class="title-main" style="font-size: 1.8rem; margin-bottom: 30px;">Drop us a line!</h4>
-          <form id="contact-form" action="#" method="POST">
-            <div class="form-group">
-              <label for="contact-name">Name</label>
-              <input type="text" id="contact-name" class="form-control" placeholder="Your Full Name" required>
+      <div class="career-grid">
+        
+        <!-- Left Side: Lab Image -->
+        <div class="career-img-box">
+          <img src="images/science-lab.jpg" alt="AET students practicing clinical techniques in the science lab">
+        </div>
+        
+        <!-- Right Side: Impact Stats Content -->
+        <div class="career-info-box">
+          <span class="section-pretitle">Become a Successful Professional</span>
+          <h2 class="section-main-title">Skilling For Livelihood Generation</h2>
+          
+          <div class="stats-grid">
+            <div class="stat-card-item">
+              <span class="stat-number">700+</span>
+              <span class="stat-description">Candidates Trained &amp; Employed</span>
             </div>
             
-            <div class="form-group">
-              <label for="contact-email">Email*</label>
-              <input type="email" id="contact-email" class="form-control" placeholder="Your Email Address" required>
+            <div class="stat-card-item">
+              <span class="stat-number">10+</span>
+              <span class="stat-description">CSR Projects Completed</span>
             </div>
             
-            <div class="form-group">
-              <label for="contact-source">Where did you hear about us?</label>
-              <select id="contact-source" class="form-control">
+            <div class="stat-card-item">
+              <span class="stat-number">7+ Yrs</span>
+              <span class="stat-description">Vocational Experience</span>
+            </div>
+            
+            <div class="stat-card-item">
+              <span class="stat-number">2 Govt.</span>
+              <span class="stat-description">Affiliations (NSDC &amp; HSSC)</span>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- --- CAMPUSES SECTION (DARK BLUEPRINT DESIGN) --- -->
+  <section class="section campuses-section" id="campuses">
+    <div class="container text-center">
+      <div class="campuses-title-wrapper">
+        <h2 class="section-main-title" style="color: white; margin-bottom: 0;">Choose from Asha Trust Campuses</h2>
+        <p class="campuses-subtitle">Get the best of classroom experience, multimedia training, and industry-standard practical laboratories.</p>
+      </div>
+      
+      <div class="campuses-grid">
+        
+        <!-- Campus 1 -->
+        <div class="campus-card">
+          <div class="campus-img-box">
+            <img src="images/hero-cover.jpg" alt="Asha Trust Gurugram Main Campus">
+          </div>
+          <div class="campus-info-box">
+            <div class="campus-name-row">
+              <div class="campus-logo-badge">
+                <img src="images/logo.png" alt="AET Logo">
+              </div>
+              <h3 class="campus-title-heading">Gurugram Main Center</h3>
+            </div>
+            
+            <div class="campus-tags-row">
+              <span class="campus-tag-pill accent-pill">MLT</span>
+              <span class="campus-tag-pill">Nursing Foundation</span>
+              <span class="campus-tag-pill">Lift Mechanic</span>
+              <span class="campus-tag-pill">HSSC</span>
+            </div>
+            
+            <div class="campus-detail-list">
+              <div class="campus-detail-item">
+                <span class="campus-detail-icon">📍</span>
+                <div>
+                  <span class="campus-detail-label">Location</span>
+                  <span class="campus-detail-val">Gurugram, Sector 14, Haryana</span>
+                </div>
+              </div>
+              <div class="campus-detail-item">
+                <span class="campus-detail-icon">🏛️</span>
+                <div>
+                  <span class="campus-detail-label">Accreditation</span>
+                  <span class="campus-detail-val">UGC Recognised Pathways</span>
+                </div>
+              </div>
+            </div>
+            
+            <a href="#contact" class="campus-card-btn">Explore Program</a>
+          </div>
+        </div>
+        
+        <!-- Campus 2 -->
+        <div class="campus-card">
+          <div class="campus-img-box">
+            <img src="images/jodhpur-classroom.jpg" alt="Asha Trust Jodhpur Campus">
+          </div>
+          <div class="campus-info-box">
+            <div class="campus-name-row">
+              <div class="campus-logo-badge">
+                <img src="images/logo.png" alt="AET Logo">
+              </div>
+              <h3 class="campus-title-heading">Jodhpur Campus</h3>
+            </div>
+            
+            <div class="campus-tags-row">
+              <span class="campus-tag-pill accent-pill">First responder</span>
+              <span class="campus-tag-pill">Emergency Tech</span>
+              <span class="campus-tag-pill">NSDC</span>
+            </div>
+            
+            <div class="campus-detail-list">
+              <div class="campus-detail-item">
+                <span class="campus-detail-icon">📍</span>
+                <div>
+                  <span class="campus-detail-label">Location</span>
+                  <span class="campus-detail-val">Jodhpur, Rajasthan Hub</span>
+                </div>
+              </div>
+              <div class="campus-detail-item">
+                <span class="campus-detail-icon">🏛️</span>
+                <div>
+                  <span class="campus-detail-label">Accreditation</span>
+                  <span class="campus-detail-val">NSDC Govt. Approved</span>
+                </div>
+              </div>
+            </div>
+            
+            <a href="#contact" class="campus-card-btn">Explore Program</a>
+          </div>
+        </div>
+        
+        <!-- Campus 3 -->
+        <div class="campus-card">
+          <div class="campus-img-box">
+            <img src="images/science-lab.jpg" alt="AET Allied Skilling Center">
+          </div>
+          <div class="campus-info-box">
+            <div class="campus-name-row">
+              <div class="campus-logo-badge">
+                <img src="images/logo.png" alt="AET Logo">
+              </div>
+              <h3 class="campus-title-heading">Delhi Allied Center</h3>
+            </div>
+            
+            <div class="campus-tags-row">
+              <span class="campus-tag-pill accent-pill">Lift Mechanic</span>
+              <span class="campus-tag-pill">Dental Assistant</span>
+              <span class="campus-tag-pill">CSR Sponsor</span>
+            </div>
+            
+            <div class="campus-detail-list">
+              <div class="campus-detail-item">
+                <span class="campus-detail-icon">📍</span>
+                <div>
+                  <span class="campus-detail-label">Location</span>
+                  <span class="campus-detail-val">Delhi NCR Region</span>
+                </div>
+              </div>
+              <div class="campus-detail-item">
+                <span class="campus-detail-icon">🏛️</span>
+                <div>
+                  <span class="campus-detail-label">Accreditation</span>
+                  <span class="campus-detail-val">HSSC Affiliated Lab</span>
+                </div>
+              </div>
+            </div>
+            
+            <a href="#contact" class="campus-card-btn">Explore Program</a>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- --- PROGRAMS CATALOG SECTION --- -->
+  <section class="section programs-section-custom" id="programs">
+    <div class="container text-center">
+      <span class="section-pretitle">Specialized Skill Training</span>
+      <h2 class="section-heading-custom">Explore Our Professional Pathways</h2>
+      
+      <div class="programs-grid-custom">
+        
+        <!-- Course 1 -->
+        <div class="program-card-custom" id="pathway-nursing">
+          <div class="program-img-custom">
+            <img src="images/jodhpur-classroom.jpg" alt="Nursing and Allied Healthcare Foundation Classes">
+          </div>
+          <div class="program-info-custom">
+            <span class="program-duration-badge">GNM / B.Sc. Pathways / ANM</span>
+            <h3 class="program-name-custom">Nursing Courses</h3>
+            <p class="program-desc-custom">Comprehensive foundation nursing curriculum covering anatomy, bedside assistance, medical terminology, and CMSED certification pathways.</p>
+            <a href="#contact" class="program-action-btn">Apply Now</a>
+          </div>
+        </div>
+        
+        <!-- Course 2 -->
+        <div class="program-card-custom" id="pathway-paramedical">
+          <div class="program-img-custom">
+            <img src="images/science-lab.jpg" alt="Paramedical Lab Science and Diagnostics">
+          </div>
+          <div class="program-info-custom">
+            <span class="program-duration-badge">MLT / Radiology / OTT / Cardiac</span>
+            <h3 class="program-name-custom">Paramedical Sciences</h3>
+            <p class="program-desc-custom">Professional degree and diploma pathways covering Medical Lab Technology (MLT), Radiology Imaging, Operation Theatre Tech, and Cardiac Care setups.</p>
+            <a href="#contact" class="program-action-btn">Apply Now</a>
+          </div>
+        </div>
+        
+        <!-- Course 3 -->
+        <div class="program-card-custom" id="pathway-mechanic">
+          <div class="program-img-custom">
+            <img src="images/hero-cover.jpg" alt="Lift Mechanic and Technical Repairs Lab">
+          </div>
+          <div class="program-info-custom">
+            <span class="program-duration-badge">Technical Certificate</span>
+            <h3 class="program-name-custom">Lift Mechanic Technician</h3>
+            <p class="program-desc-custom">Specialized technical skilling pathway covers escalator/elevator maintenance, motor repair, structural safety, control wiring, and digital boards.</p>
+            <a href="#contact" class="program-action-btn">Apply Now</a>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div class="explore-more-row">
+        <a href="#contact" class="btn btn-outline" style="border-radius: 12px; font-weight: 600;">Explore all programs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- VIBRANT CTA ELIGIBILITY BANNER --- -->
+  <section class="section eligibility-cta-section" id="eligibility">
+    <div class="container text-center">
+      <div class="cta-banner-content">
+        <h2 class="cta-banner-title">Want to see if you qualify for our skilling scholarships?</h2>
+        <p class="cta-banner-desc">Talk to our admissions counsellor to check your eligibility under corporate CSR sponsored batches or NSDC free seats.</p>
+        <a href="#contact" class="btn">Check your eligibility ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- THE ASHA TRUST EDGE SECTION --- -->
+  <section class="section edge-section" id="edge">
+    <div class="container text-center">
+      <span class="section-pretitle">Why Asha Trust?</span>
+      <h2 class="edge-heading">The Industry Edge</h2>
+      
+      <div class="edge-grid">
+        
+        <!-- Card 1 -->
+        <div class="edge-card">
+          <div class="edge-icon-box">🖥️</div>
+          <h4 class="edge-card-title">Multimedia Classrooms</h4>
+          <p class="edge-card-desc">Interactive blended learning with modern videos, visual slide libraries, and quizzes to make concepts extremely intuitive.</p>
+        </div>
+        
+        <!-- Card 2 -->
+        <div class="edge-card">
+          <div class="edge-icon-box">📜</div>
+          <h4 class="edge-card-title">Govt. Affiliation</h4>
+          <p class="edge-card-desc">Accredited curriculum aligned with the National Skill Development Corporation (NSDC) and Healthcare Sector Skill Council (HSSC).</p>
+        </div>
+        
+        <!-- Card 3 -->
+        <div class="edge-card">
+          <div class="edge-icon-box">🤝</div>
+          <h4 class="edge-card-title">Placement Support</h4>
+          <p class="edge-card-desc">Dedicated recruitment cell aligning student job pathways with leading hospitals, diagnostic laboratories, and technical repair agencies.</p>
+        </div>
+        
+        <!-- Card 4 -->
+        <div class="edge-card">
+          <div class="edge-icon-box">🎁</div>
+          <h4 class="edge-card-title">CSR Sponsored Seats</h4>
+          <p class="edge-card-desc">Corporate-sponsored free educational paths targeting candidates from low-income, underrepresented, or rural background indicators.</p>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- --- TESTIMONIALS SLIDER SECTION --- -->
+  <section class="section testimonials-section" id="testimonials">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-pretitle">Alumni Success Stories</span>
+        <h2 class="testimonials-heading">From Classroom to Career</h2>
+      </div>
+      
+      <div class="testimonials-slider-container" id="testimonial-carousel">
+        
+        <!-- Slide 1 -->
+        <div class="testimonial-slide-card">
+          <div class="testimonial-video-box">
+            <img src="images/jodhpur-classroom.jpg" alt="AET Alumni student Shruti">
+            <div class="play-button-overlay" aria-label="Play video">▶</div>
+          </div>
+          <div class="testimonial-body">
+            <p class="testimonial-quote-text">"I was nervous about switching streams after school, but the practical labs and multimedia classrooms made healthcare concepts easy to understand. Today, I am proud to be working in medicine."</p>
+            <div class="testimonial-footer-info">
+              <div class="student-identity">
+                <span class="student-name-text">Shruti</span>
+                <span class="student-course-text">Pursued Nursing Assistant Path</span>
+              </div>
+              <div class="employer-logo-box">
+                <!-- Use text/badge styling for employer brand placeholder -->
+                <strong>AET Grad</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="testimonial-slide-card">
+          <div class="testimonial-video-box">
+            <img src="images/science-lab.jpg" alt="AET Alumni student Anjali">
+            <div class="play-button-overlay" aria-label="Play video">▶</div>
+          </div>
+          <div class="testimonial-body">
+            <p class="testimonial-quote-text">"I had attempted NEET but couldn't get a government seat. Asha Trust's vocational MLT paramedical path helped me turn my medical career dream into reality. Highly recommended."</p>
+            <div class="testimonial-footer-info">
+              <div class="student-identity">
+                <span class="student-name-text">Anjali</span>
+                <span class="student-course-text">Pursued Lab Tech Path</span>
+              </div>
+              <div class="employer-logo-box">
+                <strong>AET Grad</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="testimonial-slide-card">
+          <div class="testimonial-video-box">
+            <img src="images/hero-cover.jpg" alt="AET Alumni student Aishwarya">
+            <div class="play-button-overlay" aria-label="Play video">▶</div>
+          </div>
+          <div class="testimonial-body">
+            <p class="testimonial-quote-text">"With Asha Trust's skilling programs, I gained both technical diagnostic knowledge and the corporate communication skills needed to excel. Placed immediately upon graduation."</p>
+            <div class="testimonial-footer-info">
+              <div class="student-identity">
+                <span class="student-name-text">Aishwarya</span>
+                <span class="student-course-text">Placed Phlebotomist</span>
+              </div>
+              <div class="employer-logo-box">
+                <strong>Healthians</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- --- GALLERY SECTION --- -->
+  <section class="section gallery-section-custom" id="gallery">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-pretitle">Our Impact in Action</span>
+        <h2 class="section-main-title">Asha Trust Gallery</h2>
+      </div>
+      
+      <div class="gallery-grid-custom" id="gallery-container">
+        
+        <!-- Item 1 -->
+        <div class="gallery-card-custom" data-image="images/jodhpur-classroom.jpg">
+          <img src="images/jodhpur-classroom.jpg" alt="Classroom training session in Jodhpur Campus">
+          <div class="gallery-card-overlay">
+            <span class="gallery-zoom-icon">🔍</span>
+          </div>
+        </div>
+        
+        <!-- Item 2 -->
+        <div class="gallery-card-custom" data-image="images/science-lab.jpg">
+          <img src="images/science-lab.jpg" alt="Students executing chemistry practical in the laboratory">
+          <div class="gallery-card-overlay">
+            <span class="gallery-zoom-icon">🔍</span>
+          </div>
+        </div>
+        
+        <!-- Item 3 -->
+        <div class="gallery-card-custom" data-image="images/csr-activities.jpg">
+          <img src="images/csr-activities.jpg" alt="AET CSR skill program execution setup">
+          <div class="gallery-card-overlay">
+            <span class="gallery-zoom-icon">🔍</span>
+          </div>
+        </div>
+        
+        <!-- Item 4 -->
+        <div class="gallery-card-custom" data-image="images/mission.jpg">
+          <img src="images/mission.jpg" alt="AET Skilling demonstration card">
+          <div class="gallery-card-overlay">
+            <span class="gallery-zoom-icon">🔍</span>
+          </div>
+        </div>
+        
+        <!-- Item 5 -->
+        <div class="gallery-card-custom" data-image="images/vision.jpg">
+          <img src="images/vision.jpg" alt="AET core vision indicator card">
+          <div class="gallery-card-overlay">
+            <span class="gallery-zoom-icon">🔍</span>
+          </div>
+        </div>
+        
+        <!-- Item 6 -->
+        <div class="gallery-card-custom" data-image="images/hero-cover.jpg">
+          <img src="images/hero-cover.jpg" alt="Allied Healthcare classroom setup">
+          <div class="gallery-card-overlay">
+            <span class="gallery-zoom-icon">🔍</span>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- --- CONTACT & FORM SECTION --- -->
+  <section class="section contact-section-custom" id="contact">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-pretitle">Start Your Journey</span>
+        <h2 class="section-main-title">Contact Our Admissions Desk</h2>
+      </div>
+      
+      <div class="contact-layout-grid">
+        
+        <!-- Left: Contact Form Card -->
+        <div class="contact-form-card-custom">
+          <h3 class="contact-form-heading">Send us an Inquiry</h3>
+          <form id="contact-form">
+            <div class="form-group-custom">
+              <label for="contact-name">Name*</label>
+              <input type="text" id="contact-name" class="form-control-custom" placeholder="Enter Full Name" required>
+            </div>
+            
+            <div class="form-group-custom">
+              <label for="contact-email">Email Address*</label>
+              <input type="email" id="contact-email" class="form-control-custom" placeholder="Enter Email Address" required>
+            </div>
+            
+            <div class="form-group-custom">
+              <label for="contact-source">How did you hear about Asha Education Trust?</label>
+              <select id="contact-source" class="form-control-custom">
                 <option value="none">Choose option</option>
                 <option value="social-media">Social Media</option>
-                <option value="search-engine">Search Engine (Google, Bing)</option>
-                <option value="newspaper">Newspaper/Flyer</option>
-                <option value="friend">Friend/Relative</option>
+                <option value="search-engine">Search Engine</option>
+                <option value="news-flyer">Newspaper / Flyer</option>
+                <option value="friend">Friend / Relative</option>
+                <option value="csr-partner">Corporate CSR Sponsor</option>
                 <option value="other">Other</option>
               </select>
             </div>
             
-            <div class="form-group">
-              <label for="contact-message">Message</label>
-              <textarea id="contact-message" class="form-control" placeholder="How can we help you?" required></textarea>
+            <div class="form-group-custom">
+              <label for="contact-message">Inquiry / Message*</label>
+              <textarea id="contact-message" class="form-control-custom" placeholder="Enter course path interest or general inquiry detail" required></textarea>
             </div>
             
-            <button type="submit" class="btn btn-primary" style="width: 100%;" id="btn-submit-form">Send Message</button>
+            <button type="submit" class="btn btn-orange" style="width: 100%; border-radius: 10px;" id="btn-submit-form">Send message ↗</button>
           </form>
         </div>
         
-        <!-- Contact Details -->
-        <div class="contact-details">
-          <div class="detail-block" id="detail-hours">
-            <div class="detail-icon">🕒</div>
-            <div class="detail-content" style="width: 100%;">
-              <h5>Hours</h5>
-              <p>We are open during the following business hours:</p>
-              <table class="hours-table">
-                <tr><td>Monday</td><td>09:30 am – 05:30 pm</td></tr>
-                <tr><td>Tuesday</td><td>09:30 am – 05:30 pm</td></tr>
-                <tr><td>Wednesday</td><td>09:30 am – 05:30 pm</td></tr>
-                <tr><td>Thursday</td><td>09:30 am – 05:30 pm</td></tr>
-                <tr><td>Friday</td><td>09:30 am – 05:30 pm</td></tr>
-                <tr><td>Saturday</td><td>09:30 am – 05:30 pm</td></tr>
+        <!-- Right: Contact Details -->
+        <div class="contact-details-box">
+          
+          <!-- Hours -->
+          <div class="detail-info-block" id="detail-hours">
+            <div class="detail-info-icon">🕒</div>
+            <div class="detail-info-content" style="width: 100%;">
+              <h5>Center Hours</h5>
+              <p>Admissions desk and training classrooms schedule:</p>
+              <table class="hours-table-custom">
+                <tr><td>Monday to Saturday</td><td>09:30 am – 05:30 pm</td></tr>
                 <tr><td>Sunday</td><td>Closed</td></tr>
               </table>
             </div>
           </div>
           
-          <div class="detail-block" id="detail-address">
-            <div class="detail-icon">📍</div>
-            <div class="detail-content">
-              <h5>Better yet, see us in person!</h5>
-              <p>We love our students and corporate partners, so feel free to visit during normal business hours.</p>
-              <p style="margin-top: 10px; font-weight: 600; color: var(--color-secondary);">
+          <!-- Address -->
+          <div class="detail-info-block" id="detail-address">
+            <div class="detail-info-icon">📍</div>
+            <div class="detail-info-content">
+              <h5>Visit Campus in Person</h5>
+              <p>We encourage students and corporate partners to visit our main office during business hours:</p>
+              <p style="margin-top: 10px; font-weight: 700; color: var(--color-navy-dark);">
                 Asha Education Trust<br>
-                M22, 2nd Floor, Old DLF Colony, Sector 14, SBI Lane, Gurugram, Haryana
+                M22, 2nd Floor, Old DLF Colony, Sector 14, SBI Lane, Gurugram, Haryana - 122001
               </p>
             </div>
           </div>
           
-          <div class="detail-block" id="detail-phones">
-            <div class="detail-icon">📞</div>
-            <div class="detail-content">
-              <h5>Call Us</h5>
-              <p><a href="tel:+91118287135804">+91-11-8287135804</a></p>
-              <p><a href="tel:9811418383">9811418383</a></p>
-              <p><a href="tel:+91118766243439">+91-11-8766243439</a></p>
+          <!-- Phones -->
+          <div class="detail-info-block" id="detail-phones">
+            <div class="detail-info-icon">📞</div>
+            <div class="detail-info-content">
+              <h5>Call Hotline Support</h5>
+              <p style="margin-bottom: 4px;"><a href="tel:+91118287135804" style="font-weight: 600;">+91-11-8287135804</a></p>
+              <p style="margin-bottom: 4px;"><a href="tel:9811418383" style="font-weight: 600;">9811418383</a></p>
+              <p style="margin-bottom: 12px;"><a href="tel:+91118766243439" style="font-weight: 600;">+91-11-8766243439</a></p>
               
-              <a href="https://wa.me/918766243439" target="_blank" rel="noopener" class="whatsapp-link" id="whatsapp-btn">
+              <a href="https://wa.me/918766243439" target="_blank" rel="noopener" class="wa-link-btn" id="whatsapp-btn">
                 <span>💬</span> Message us on WhatsApp
               </a>
             </div>
           </div>
+          
         </div>
+        
       </div>
     </div>
   </section>
 
   <!-- --- FOOTER --- -->
-  <footer>
-    <div class="container footer-grid">
-      <div class="footer-col footer-about">
-        <h4 style="color: white;">Asha Education Trust</h4>
-        <p>Providing high-quality industry-standard skill development trainings to young minds in medical, elevator repairs, and general allied healthcare paths, fostering professional independence and employment.</p>
-      </div>
+  <footer class="main-footer">
+    <div class="container">
       
-      <div class="footer-col">
-        <h4 style="color: white;">Quick Links</h4>
-        <div class="footer-links">
-          <a href="#home">Home</a>
-          <a href="#about">About Us</a>
-          <a href="#programs">Programs</a>
-          <a href="#csr">CSR Partnerships</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#contact">Contact</a>
+      <!-- App Explore Banner -->
+      <div class="app-explore-banner">
+        <h3 class="app-explore-title">Explore the Asha Trust skilling portal</h3>
+        <div class="app-store-badges-row">
+          <a href="https://play.google.com/store" target="_blank" class="store-badge-link">
+            <img src="images/logo.png" alt="Google Play Store Badge placeholder" style="height:40px; border-radius: 4px; object-fit: contain; filter: invert(1);">
+          </a>
+          <a href="https://apps.apple.com" target="_blank" class="store-badge-link">
+            <img src="images/logo.png" alt="Apple App Store Badge placeholder" style="height:40px; border-radius: 4px; object-fit: contain; filter: invert(1);">
+          </a>
         </div>
       </div>
       
-      <div class="footer-col">
-        <h4 style="color: white;">Contact Us</h4>
-        <div class="footer-contact-list">
-          <div class="footer-contact-item">
+      <!-- Footer columns -->
+      <div class="footer-main-grid">
+        
+        <!-- Brand column -->
+        <div class="footer-brand-col">
+          <a href="#home" class="footer-logo">
+            <img src="images/logo.png" alt="Asha Education Trust Logo">
+          </a>
+          <p class="footer-brand-desc">Asha Education Trust provides high-quality industry-standard skill development trainings, fostering professional independence, corporate livelihood projects, and sustainable youth development.</p>
+        </div>
+        
+        <!-- Links Col 1 -->
+        <div class="footer-links-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links-list">
+            <li><a href="#home" class="footer-item-link">Home</a></li>
+            <li><a href="#programs" class="footer-item-link">Programs Catalog</a></li>
+            <li><a href="#campuses" class="footer-item-link">Locations &amp; Campuses</a></li>
+            <li><a href="#about" class="footer-item-link">About AET</a></li>
+          </ul>
+        </div>
+        
+        <!-- Links Col 2 -->
+        <div class="footer-links-col">
+          <h4>Accreditations</h4>
+          <ul class="footer-links-list">
+            <li><a href="#about" class="footer-item-link">NSDC Approved</a></li>
+            <li><a href="#about" class="footer-item-link">HSSC Affiliation</a></li>
+            <li><a href="#eligibility" class="footer-item-link">CSR Project Rules</a></li>
+            <li><a href="#edge" class="footer-item-link">The Industry Edge</a></li>
+          </ul>
+        </div>
+        
+        <!-- Links Col 3 -->
+        <div class="footer-links-col">
+          <h4>Legal &amp; Policy</h4>
+          <ul class="footer-links-list">
+            <li><a href="#" class="footer-item-link">Privacy Policy</a></li>
+            <li><a href="#" class="footer-item-link">Terms &amp; Conditions</a></li>
+            <li><a href="#" class="footer-item-link">Refund Guidelines</a></li>
+            <li><a href="#contact" class="footer-item-link">Support Desk</a></li>
+          </ul>
+        </div>
+        
+        <!-- Links Col 4 -->
+        <div class="footer-links-col">
+          <h4>Get In Touch</h4>
+          <div class="footer-contact-address">
             <span>📍</span>
-            <span>M22, 2nd Floor, Old DLF, Sector 14, Gurugram</span>
+            <span>M22, Sector 14, Old DLF, Gurugram, Haryana</span>
           </div>
-          <div class="footer-contact-item">
+          <div class="footer-contact-address">
             <span>📞</span>
-            <a href="tel:+91118766243439" style="color: #B5C9CC;">+91-11-8766243439</a>
+            <a href="tel:+91118766243439" class="footer-item-link">+91-11-8766243439</a>
           </div>
-          <div class="footer-contact-item">
-            <span>💬</span>
-            <a href="https://wa.me/918766243439" style="color: #B5C9CC;">WhatsApp Chat</a>
+          <div class="footer-contact-address">
+            <span>✉️</span>
+            <a href="mailto:info@ashatrust.org" class="footer-item-link">info@ashatrust.org</a>
           </div>
         </div>
+        
       </div>
       
-      <div class="footer-col footer-subscribe">
-        <h4 style="color: white;">Subscribe</h4>
-        <p>Get details of new courses &amp; scholarships when you sign up for our newsletter!</p>
-        <form class="subscribe-form" id="newsletter-form" action="#">
-          <input type="email" placeholder="Your Email Address" required aria-label="Email Address">
-          <button type="submit" id="btn-subscribe">Sign up</button>
-        </form>
+      <!-- Footer Bottom Row -->
+      <div class="footer-bottom-row">
+        <p>&copy; 2026 Asha Education Trust. All Rights Reserved.</p>
+        <p>Approved Skilling Partner under NSDC &amp; Healthcare Sector Skill Council</p>
       </div>
-    </div>
-    
-    <div class="container footer-bottom">
-      <p>&copy; 2026 Asha Education Trust - All Rights Reserved.</p>
-      <p>Powered by HTML5 &amp; Vanilla CSS</p>
+      
     </div>
   </footer>
 
-  <!-- --- LIGHTBOX MODAL --- -->
+  <!-- --- LIGHTBOX POPUP MODAL --- -->
   <div class="lightbox" id="lightbox-modal">
     <span class="lightbox-close" id="lightbox-close">&times;</span>
     <img src="" alt="Expanded View" class="lightbox-content" id="lightbox-img">
   </div>
 
-  <!-- JavaScript Behavior File -->
+  <!-- Javascript File -->
   <script src="index.js"></script>
 </body>
 </html>
