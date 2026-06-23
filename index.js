@@ -50,28 +50,31 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- ACTIVE HEADER NAV HIGHLIGHT ON SCROLL ---
-  const sections = document.querySelectorAll('section[id]');
-  const primaryLinks = document.querySelectorAll('.nav-item-link');
+  const isHomePage = !!document.getElementById('home');
+  if (isHomePage) {
+    const sections = document.querySelectorAll('section[id]');
+    const primaryLinks = document.querySelectorAll('.nav-item-link');
 
-  const highlightNav = () => {
-    let scrollY = window.scrollY;
-    
-    sections.forEach(current => {
-      const sectionHeight = current.offsetHeight;
-      const sectionTop = current.offsetTop - 140; // match header offset
-      const sectionId = current.getAttribute('id');
+    const highlightNav = () => {
+      let scrollY = window.scrollY;
       
-      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        primaryLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${sectionId}`) {
-            link.classList.add('active');
-          }
-        });
-      }
-    });
-  };
-  window.addEventListener('scroll', highlightNav);
+      sections.forEach(current => {
+        const sectionHeight = current.offsetHeight;
+        const sectionTop = current.offsetTop - 140; // match header offset
+        const sectionId = current.getAttribute('id');
+        
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+          primaryLinks.forEach(link => {
+            if (link.getAttribute('href') === `#${sectionId}`) {
+              primaryLinks.forEach(l => l.classList.remove('active'));
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    };
+    window.addEventListener('scroll', highlightNav);
+  }
 
   // --- GALLERY LIGHTBOX MODAL ---
   const galleryCards = document.querySelectorAll('.gallery-card-custom');
@@ -145,8 +148,19 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
       
-      alert(`Thank you, ${name}! Your inquiry has been received.\nOur admissions counsellor will contact you at ${email} shortly.`);
-      contactForm.reset();
+      // Look for inline success message container in the same card/parent
+      const parentCard = contactForm.closest('.contact-form-card-custom');
+      const successMsg = parentCard ? parentCard.querySelector('.contact-success-msg-custom') : null;
+      const formHeading = parentCard ? parentCard.querySelector('.contact-form-heading') : null;
+      
+      if (successMsg) {
+        contactForm.style.display = 'none';
+        if (formHeading) formHeading.style.display = 'none';
+        successMsg.style.display = 'flex';
+      } else {
+        alert(`Thank you, ${name}! Your inquiry has been received.\nOur admissions counsellor will contact you at ${email} shortly.`);
+        contactForm.reset();
+      }
     });
   }
 
