@@ -1,6 +1,7 @@
 /*
- * Asha Education Trust - Interactivity Logic
- * Custom javascript supporting responsive navigation, carousels, forms, and galleries
+ * Lifekare Medical and Technical Institute - Interactivity Logic
+ * Custom javascript supporting responsive navigation, carousels, popup modals,
+ * animated stats counters, course filter tabs, and galleries.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,13 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const handleScroll = () => {
     if (window.scrollY > 40) {
       header.classList.add('scrolled');
-      // Subtle header padding reduction or shadow styling is managed in CSS
     } else {
       header.classList.remove('scrolled');
     }
   };
   window.addEventListener('scroll', handleScroll);
-  handleScroll(); // Run once on startup in case page loaded scrolled down
+  handleScroll();
 
   // --- MOBILE DRAWER INTERACTION ---
   const menuToggle = document.getElementById('menu-toggle');
@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
       menuToggle.classList.toggle('open');
       navLinks.classList.toggle('active');
       
-      // Prevent body scrolling when mobile menu is active
       if (!isExpanded) {
         document.body.style.overflow = 'hidden';
       } else {
@@ -65,7 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
           primaryLinks.forEach(link => {
-            if (link.getAttribute('href') === `#${sectionId}`) {
+            const href = link.getAttribute('href');
+            if (href && (href.endsWith(`#${sectionId}`) || href === `#${sectionId}`)) {
               primaryLinks.forEach(l => l.classList.remove('active'));
               link.classList.add('active');
             }
@@ -74,6 +74,234 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     };
     window.addEventListener('scroll', highlightNav);
+  }
+
+  // --- HERO CAROUSEL INTERACTION ---
+  const heroCarousel = document.getElementById('hero-carousel');
+  if (heroCarousel) {
+    const track = document.getElementById('carousel-track');
+    const slides = Array.from(track.children);
+    const nextBtn = document.getElementById('next-slide');
+    const prevBtn = document.getElementById('prev-slide');
+    const dotsContainer = document.getElementById('carousel-dots');
+    const dots = Array.from(dotsContainer.children);
+    
+    let currentIndex = 0;
+    let autoSlideTimer;
+
+    const updateCarousel = (index) => {
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[index].classList.add('active');
+      currentIndex = index;
+    };
+
+    const nextSlide = () => {
+      let nextIndex = (currentIndex + 1) % slides.length;
+      updateCarousel(nextIndex);
+    };
+
+    const prevSlide = () => {
+      let prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateCarousel(prevIndex);
+    };
+
+    const startAutoSlide = () => {
+      stopAutoSlide();
+      autoSlideTimer = setInterval(nextSlide, 5000); // Auto slide every 5 seconds
+    };
+
+    const stopAutoSlide = () => {
+      if (autoSlideTimer) clearInterval(autoSlideTimer);
+    };
+
+    // Click Handlers
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      startAutoSlide();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      startAutoSlide();
+    });
+
+    dots.forEach((dot, idx) => {
+      dot.addEventListener('click', () => {
+        updateCarousel(idx);
+        startAutoSlide();
+      });
+    });
+
+    // Pause on Hover
+    heroCarousel.addEventListener('mouseenter', stopAutoSlide);
+    heroCarousel.addEventListener('mouseleave', startAutoSlide);
+
+    // Initial setup
+    updateCarousel(0);
+    startAutoSlide();
+  }
+
+  // --- POPUP ADMISSION ENQUIRY MODAL ---
+  const enquiryPopup = document.getElementById('enquiry-popup');
+  const closePopupBtn = document.getElementById('close-popup');
+  const popupForm = document.getElementById('popup-enquiry-form');
+  const formWrapper = document.getElementById('enquiry-form-wrapper');
+  const successMsg = document.getElementById('popup-success-msg');
+
+  const openPopup = () => {
+    if (enquiryPopup) {
+      if (formWrapper) formWrapper.style.display = 'block';
+      if (successMsg) successMsg.style.display = 'none';
+      if (popupForm) popupForm.reset();
+      enquiryPopup.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  const closePopup = () => {
+    if (enquiryPopup) {
+      enquiryPopup.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  };
+
+  // Wire all popup trigger buttons
+  const popupTriggers = document.querySelectorAll('.trigger-popup, .program-action-btn, .campus-card-btn, .scholarship-cta-btn');
+  popupTriggers.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openPopup();
+    });
+  });
+
+  if (closePopupBtn) {
+    closePopupBtn.addEventListener('click', closePopup);
+  }
+
+  if (enquiryPopup) {
+    enquiryPopup.addEventListener('click', (e) => {
+      if (e.target === enquiryPopup) {
+        closePopup();
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && enquiryPopup.classList.contains('active')) {
+        closePopup();
+      }
+    });
+  }
+
+  // Show Popup on first visit of the session
+  if (isHomePage && enquiryPopup) {
+    const hasVisited = sessionStorage.getItem('lmti_visited');
+    if (!hasVisited) {
+      setTimeout(() => {
+        openPopup();
+        sessionStorage.setItem('lmti_visited', 'true');
+      }, 2500); // 2.5 seconds delay after load
+    }
+  }
+
+  // Handle Popup Form Submission
+  if (popupForm) {
+    popupForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('popup-name').value.trim();
+      const email = document.getElementById('popup-email').value.trim();
+      const phone = document.getElementById('popup-phone').value.trim();
+      const course = document.getElementById('popup-course').value;
+
+      if (!name || !email || !phone || !course) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+
+      // Hide form, show success message
+      if (formWrapper && successMsg) {
+        formWrapper.style.display = 'none';
+        successMsg.style.display = 'block';
+        
+        // Auto-close popup after 3 seconds
+        setTimeout(closePopup, 3000);
+      }
+    });
+  }
+
+  // --- COURSE TABS FILTER SYSTEM ---
+  const tabButtons = document.querySelectorAll('.skill-tab-btn');
+  const coursesGrid = document.getElementById('courses-grid');
+  
+  if (tabButtons.length > 0 && coursesGrid) {
+    const courseCards = Array.from(coursesGrid.children);
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const category = btn.getAttribute('data-category');
+
+        courseCards.forEach(card => {
+          const cardCategory = card.getAttribute('data-category');
+          if (category === 'all' || cardCategory === category) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+
+  // --- ANIMATED STATS COUNTERS ---
+  const stats = document.querySelectorAll('.stat-number');
+  if (stats.length > 0) {
+    const runCounters = () => {
+      stats.forEach(stat => {
+        const target = parseInt(stat.getAttribute('data-target'), 10);
+        let current = 0;
+        const duration = 1500; // 1.5 seconds animation duration
+        const stepTime = Math.max(Math.floor(duration / target), 15);
+        
+        // Determine increment
+        const increment = Math.ceil(target / (duration / stepTime));
+
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            stat.textContent = target + (target === 9 || target === 20 ? '+' : '+');
+            if (target === 9) stat.textContent = '9+ Years';
+            if (target === 1200) stat.textContent = '1200+';
+            if (target === 20) stat.textContent = '20+';
+            if (target === 5000) stat.textContent = '5000+';
+            clearInterval(timer);
+          } else {
+            stat.textContent = current;
+          }
+        }, stepTime);
+      });
+    };
+
+    // Intersection Observer to trigger counters when visible
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          runCounters();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    const statsSection = document.querySelector('.career-stats-section');
+    if (statsSection) {
+      observer.observe(statsSection);
+    } else {
+      // Fallback
+      runCounters();
+    }
   }
 
   // --- GALLERY LIGHTBOX MODAL ---
@@ -126,9 +354,7 @@ document.addEventListener('DOMContentLoaded', () => {
   playButtons.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
-      const card = btn.closest('.testimonial-slide-card');
-      const studentName = card.querySelector('.student-name-text').textContent;
-      alert(`Playing video success story for ${studentName}...\nIn production, this opens a video player or plays in-place.`);
+      openPopup(); // Trigger the same popup for enquiries
     });
   });
 
@@ -140,7 +366,6 @@ document.addEventListener('DOMContentLoaded', () => {
       
       const name = document.getElementById('contact-name').value.trim();
       const email = document.getElementById('contact-email').value.trim();
-      const source = document.getElementById('contact-source').value;
       const message = document.getElementById('contact-message').value.trim();
       
       if (!name || !email || !message) {
@@ -148,15 +373,14 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
       
-      // Look for inline success message container in the same card/parent
       const parentCard = contactForm.closest('.contact-form-card-custom');
-      const successMsg = parentCard ? parentCard.querySelector('.contact-success-msg-custom') : null;
+      const inlineSuccessMsg = parentCard ? parentCard.querySelector('.contact-success-msg-custom') : null;
       const formHeading = parentCard ? parentCard.querySelector('.contact-form-heading') : null;
       
-      if (successMsg) {
+      if (inlineSuccessMsg) {
         contactForm.style.display = 'none';
         if (formHeading) formHeading.style.display = 'none';
-        successMsg.style.display = 'flex';
+        inlineSuccessMsg.style.display = 'flex';
       } else {
         alert(`Thank you, ${name}! Your inquiry has been received.\nOur admissions counsellor will contact you at ${email} shortly.`);
         contactForm.reset();
@@ -164,14 +388,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- NEWSLETTER PRE-FOOTER FORM SUBMISSION ---
-  const newsletterForm = document.getElementById('newsletter-form');
-  if (newsletterForm) {
-    newsletterForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const emailInput = newsletterForm.querySelector('input[type="email"]');
-      alert(`Success! Subscribed to AET skilling newsletter: ${emailInput.value}`);
-      newsletterForm.reset();
-    });
-  }
 });

@@ -1,9 +1,9 @@
 /*
- * Asha Education Trust - Redesigned Stylesheet
- * Fully custom modern UI replica of the Virohan.com design system
+ * Lifekare Medical and Technical Institute - Redesigned Stylesheet
+ * Updated modern UI with Poppins font, carousel, popup, and expanded sections
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 /* --- DESIGN SYSTEM & TOKENS --- */
 :root {
@@ -22,8 +22,8 @@
   --color-gold-bg: #FFF7ED;           /* Scholarship Pill Bg */
   --color-gold-text: #C2410C;
   
-  --font-heading: 'Outfit', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Poppins', sans-serif;
   
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.02);
   --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.05), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
@@ -282,78 +282,65 @@ button, input, select, textarea {
   transition: var(--transition-normal);
 }
 
-/* --- HERO SECTION --- */
+/* --- HERO CAROUSEL SECTION --- */
 .hero-section {
-  padding-top: calc(var(--header-height) + 24px);
-  padding-bottom: 48px;
-  background-color: var(--color-bg-white);
-}
-
-.hero-rounded-card {
+  padding-top: var(--header-height);
+  padding-bottom: 0;
   background-color: var(--color-navy-dark);
-  border-radius: 32px;
+  position: relative;
   overflow: hidden;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  color: var(--color-text-light);
-  min-height: 520px;
 }
 
-.hero-left-content {
-  padding: 56px;
+.hero-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 600px;
+  overflow: hidden;
+}
+
+.hero-carousel-track {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  height: 100%;
 }
 
-/* Scholarship Pill Badge */
-.scholarship-badge {
-  background-color: var(--color-gold-bg);
-  border: 1px solid rgba(194, 65, 12, 0.15);
-  border-radius: 9999px;
-  padding: 8px 16px;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 28px;
-  color: var(--color-gold-text);
-  font-size: 0.88rem;
-  font-weight: 500;
-  transition: var(--transition-normal);
-}
-
-.scholarship-badge:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(194, 65, 12, 0.08);
-}
-
-.badge-icon {
-  background-color: var(--color-primary);
-  color: var(--color-text-light);
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
+.hero-slide {
+  min-width: 100%;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.8rem;
+  background-color: var(--color-navy-dark);
+  min-height: 600px;
 }
 
-.badge-tag {
-  background-color: var(--color-red-tag);
+.hero-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Hero overlay content */
+.hero-overlay-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+  background: linear-gradient(90deg, rgba(11, 18, 38, 0.92) 0%, rgba(11, 18, 38, 0.75) 45%, rgba(11, 18, 38, 0.2) 100%);
+  padding: 0 6%;
+}
+
+.hero-text-content {
+  max-width: 600px;
   color: var(--color-text-light);
-  font-size: 0.65rem;
-  font-weight: 700;
-  padding: 2px 6px;
-  border-radius: 4px;
-  letter-spacing: 0.5px;
-  line-height: 1;
-}
-
-.badge-arrow {
-  font-size: 1rem;
-  margin-left: 4px;
 }
 
 .hero-title-main {
@@ -377,18 +364,234 @@ button, input, select, textarea {
   gap: 16px;
 }
 
-.hero-right-img {
-  position: relative;
-  background-color: #101524;
-  overflow: hidden;
-  height: 100%;
+/* Carousel navigation arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--color-text-light);
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-normal);
 }
 
-.hero-right-img img {
+.carousel-arrow:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.carousel-arrow-left {
+  left: 24px;
+}
+
+.carousel-arrow-right {
+  right: 24px;
+}
+
+/* Carousel dots */
+.carousel-dots {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.35);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  padding: 0;
+}
+
+.carousel-dot.active {
+  background-color: var(--color-primary);
+  width: 28px;
+  border-radius: 5px;
+}
+
+.carousel-dot:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* --- ENQUIRY POPUP MODAL --- */
+.enquiry-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(11, 18, 38, 0.65);
+  backdrop-filter: blur(6px);
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-normal);
+  padding: 24px;
+}
+
+.enquiry-popup-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.enquiry-popup-card {
+  background-color: var(--color-bg-white);
+  border-radius: 24px;
+  padding: 40px;
+  max-width: 480px;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+  position: relative;
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.2);
+  transform: scale(0.92) translateY(20px);
+  transition: transform var(--transition-normal);
+}
+
+.enquiry-popup-overlay.active .enquiry-popup-card {
+  transform: scale(1) translateY(0);
+}
+
+.enquiry-popup-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--color-bg-light);
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  border: 1px solid var(--color-border);
+  line-height: 1;
+}
+
+.enquiry-popup-close:hover {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.enquiry-popup-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-navy-dark);
+  margin-bottom: 6px;
+}
+
+.enquiry-popup-subtitle {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-bottom: 28px;
+}
+
+.enquiry-popup-card .form-group-custom {
+  margin-bottom: 18px;
+}
+
+.enquiry-popup-card .form-group-custom label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  margin-bottom: 6px;
+}
+
+.enquiry-popup-card .form-control-custom {
+  width: 100%;
+  background-color: var(--color-bg-light);
+  border: 1.5px solid var(--color-border);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 0.92rem;
+  color: var(--color-text-dark);
+  transition: var(--transition-fast);
+}
+
+.enquiry-popup-card .form-control-custom:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.1);
+  background-color: var(--color-bg-white);
+}
+
+.enquiry-popup-submit {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  margin-top: 8px;
+}
+
+.enquiry-popup-submit:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -10px rgba(255, 87, 34, 0.4);
+}
+
+.enquiry-popup-success {
+  display: none;
+  text-align: center;
+  padding: 32px 16px;
+}
+
+.enquiry-popup-success .success-icon-box {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 auto 20px;
+  box-shadow: 0 8px 20px rgba(255, 87, 34, 0.3);
+}
+
+.enquiry-popup-success h4 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-navy-dark);
+  margin-bottom: 8px;
+}
+
+.enquiry-popup-success p {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
 }
 
 /* --- PARTNERS MARQUEE SECTION --- */
@@ -462,11 +665,11 @@ button, input, select, textarea {
   background-color: var(--color-bg-light);
   border: 1px solid var(--color-border);
   border-radius: 12px;
-  padding: 12px 28px;
+  padding: 12px 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 60px;
+  height: 72px;
   width: 180px;
   flex-shrink: 0;
   transition: var(--transition-fast);
@@ -479,8 +682,8 @@ button, input, select, textarea {
 }
 
 .marquee-logo-card img {
-  max-height: 38px;
-  max-width: 100%;
+  max-height: 48px;
+  max-width: 140px;
   object-fit: contain;
 }
 
@@ -569,8 +772,8 @@ button, input, select, textarea {
   color: var(--color-text-muted);
 }
 
-/* --- CAMPUS GRID SECTION (BLUEPRINT BG) --- */
-.campuses-section {
+/* --- ABOUT 50/50 SPLIT SECTION --- */
+.about-split-section {
   background-image: 
     linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
@@ -579,166 +782,122 @@ button, input, select, textarea {
   color: var(--color-text-light);
 }
 
-.campuses-title-wrapper {
-  margin-bottom: 56px;
-}
-
-.campuses-subtitle {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 1.1rem;
-  margin-top: 12px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.campuses-grid {
+.about-split-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
 }
 
-.campus-card {
-  background-color: var(--color-navy-light);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
+.about-split-img {
+  border-radius: 24px;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: var(--transition-normal);
-}
-
-.campus-card:hover {
-  transform: translateY(-8px);
   box-shadow: var(--shadow-xl);
-  border-color: rgba(255, 255, 255, 0.15);
+  height: 520px;
 }
 
-.campus-img-box {
-  height: 200px;
-  position: relative;
-}
-
-.campus-img-box img {
+.about-split-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.campus-info-box {
-  padding: 24px;
+.about-split-content {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
 }
 
-.campus-name-row {
+.about-split-content .institute-name-heading {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.about-split-content .institute-subtitle {
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 24px;
+  font-style: italic;
+}
+
+.about-split-content .institute-desc {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+.institute-contact-row {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.campus-logo-badge {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  background-color: var(--color-bg-white);
-  padding: 4px;
+.institute-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.institute-contact-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: rgba(255, 87, 34, 0.15);
+  color: var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.campus-logo-badge img {
-  max-height: 100%;
-  max-width: 100%;
-  object-fit: contain;
-}
-
-.campus-title-heading {
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--color-text-light);
-}
-
-.campus-tags-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 24px;
-}
-
-.campus-tag-pill {
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 6px;
-  background-color: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.campus-tag-pill.accent-pill {
-  background-color: var(--color-primary);
-  color: var(--color-text-light);
-}
-
-.campus-detail-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 24px;
-  flex-grow: 1;
-}
-
-.campus-detail-item {
-  display: flex;
-  gap: 12px;
-  font-size: 0.9rem;
-}
-
-.campus-detail-icon {
-  color: var(--color-primary);
+  font-size: 1.1rem;
   flex-shrink: 0;
-  font-size: 1.05rem;
 }
 
-.campus-detail-label {
-  color: rgba(255, 255, 255, 0.5);
+.institute-contact-text {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+}
+
+.institute-contact-text strong {
   display: block;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.campus-detail-val {
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 500;
-}
-
-.campus-card-btn {
-  width: 100%;
-  padding: 12px;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  background-color: rgba(255, 255, 255, 0.05);
   color: var(--color-text-light);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  text-align: center;
-  transition: var(--transition-fast);
-  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 2px;
 }
 
-.campus-card:hover .campus-card-btn {
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
-}
-
-/* --- PROGRAMS EXPLORER SECTION --- */
-.programs-section-custom {
+/* --- SKILL COURSES SECTION (EXPANDED) --- */
+.skill-courses-section {
   background-color: var(--color-bg-white);
+}
+
+.skill-courses-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.skill-tab-btn {
+  padding: 10px 24px;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  background-color: var(--color-bg-light);
+  color: var(--color-text-muted);
+  border: 1.5px solid var(--color-border);
+}
+
+.skill-tab-btn.active,
+.skill-tab-btn:hover {
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  border-color: var(--color-primary);
 }
 
 .section-heading-custom {
@@ -746,13 +905,13 @@ button, input, select, textarea {
   font-size: 2.75rem;
   font-weight: 800;
   color: var(--color-navy-dark);
-  margin-bottom: 48px;
+  margin-bottom: 16px;
 }
 
 .programs-grid-custom {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
   margin-bottom: 48px;
 }
 
@@ -774,7 +933,7 @@ button, input, select, textarea {
 }
 
 .program-img-custom {
-  height: 190px;
+  height: 180px;
   width: 100%;
   overflow: hidden;
 }
@@ -791,7 +950,7 @@ button, input, select, textarea {
 }
 
 .program-info-custom {
-  padding: 24px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -799,28 +958,28 @@ button, input, select, textarea {
 
 .program-name-custom {
   font-family: var(--font-heading);
-  font-size: 1.35rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: var(--color-navy-dark);
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .program-duration-badge {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
   padding: 4px 10px;
   border-radius: 6px;
   background-color: var(--color-primary-light);
   color: var(--color-primary);
   align-self: flex-start;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .program-desc-custom {
-  font-size: 0.92rem;
+  font-size: 0.85rem;
   color: var(--color-text-muted);
   line-height: 1.6;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   flex-grow: 1;
 }
 
@@ -829,13 +988,14 @@ button, input, select, textarea {
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 12px;
+  padding: 10px;
   background-color: var(--color-bg-light);
   border-radius: 10px;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--color-text-dark);
   transition: var(--transition-fast);
+  cursor: pointer;
 }
 
 .program-card-custom:hover .program-action-btn {
@@ -848,16 +1008,17 @@ button, input, select, textarea {
   justify-content: center;
 }
 
-/* --- VIBRANT CTA BANNER --- */
-.eligibility-cta-section {
-  background-color: var(--color-primary);
-  color: var(--color-text-light);
-  text-center: center;
+/* --- SCHOLARSHIP SECTION --- */
+.scholarship-section {
+  background: linear-gradient(135deg, #FFF5F2 0%, #FFFFFF 100%);
+  color: var(--color-text-dark);
   position: relative;
   overflow: hidden;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
 
-.eligibility-cta-section::before {
+.scholarship-section::before {
   content: '';
   position: absolute;
   top: 0;
@@ -865,45 +1026,122 @@ button, input, select, textarea {
   width: 100%;
   height: 100%;
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(255, 87, 34, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 87, 34, 0.03) 1px, transparent 1px);
   background-size: 24px 24px;
   pointer-events: none;
 }
 
-.cta-banner-content {
-  max-width: 680px;
-  margin: 0 auto;
+.scholarship-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
   position: relative;
   z-index: 5;
 }
 
-.cta-banner-title {
+.scholarship-illustration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.scholarship-icon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: 100%;
+  max-width: 320px;
+}
+
+.scholarship-icon-item {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 16px;
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  backdrop-filter: blur(4px);
+  border: 1.5px solid rgba(255, 87, 34, 0.15);
+  transition: var(--transition-normal);
+}
+
+.scholarship-icon-item:hover {
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  transform: translateY(-4px);
+}
+
+.scholarship-content h2 {
   font-family: var(--font-heading);
   font-size: 2.75rem;
   font-weight: 800;
   line-height: 1.2;
+  color: var(--color-navy-dark);
   margin-bottom: 16px;
 }
 
-.cta-banner-desc {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 32px;
-  font-weight: 300;
+.scholarship-content > p {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  margin-bottom: 28px;
+  line-height: 1.7;
 }
 
-.cta-banner-content .btn {
+.scholarship-eligibility-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 32px;
+}
+
+.scholarship-eligibility-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.95rem;
+  color: var(--color-text-dark);
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+
+.scholarship-eligibility-list li span.check-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.scholarship-cta-btn {
   padding: 14px 32px;
   font-size: 1rem;
-  background-color: var(--color-bg-white);
-  color: var(--color-navy-dark);
+  background-color: var(--color-navy-dark);
+  color: var(--color-text-light);
   border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
 }
 
-.cta-banner-content .btn:hover {
+.scholarship-cta-btn:hover {
+  background-color: var(--color-primary);
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 25px rgba(255, 87, 34, 0.25);
 }
 
 /* --- THE INDUSTRY EDGE SECTION --- */
@@ -1493,7 +1731,7 @@ textarea.form-control-custom {
 /* --- MOBILE DRAWER & RESPONSIVENESS --- */
 @media (max-width: 1024px) {
   :root {
-    --header-height: 74px; /* Hide secondary nav in mobile, set header height */
+    --header-height: 74px;
   }
 
   .secondary-header {
@@ -1543,30 +1781,34 @@ textarea.form-control-custom {
     transform: translateY(-8px) rotate(-45deg);
   }
 
-  .hero-rounded-card {
-    grid-template-columns: 1fr;
-    border-radius: 24px;
-    min-height: auto;
+  .hero-carousel-wrapper {
+    min-height: 480px;
   }
 
-  .hero-left-content {
-    padding: 40px 24px;
+  .hero-slide {
+    min-height: 480px;
   }
 
   .hero-title-main {
     font-size: 2.5rem;
   }
 
-  .hero-right-img {
-    height: 320px;
+  .programs-grid-custom {
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  .campuses-grid,
-  .programs-grid-custom,
   .edge-grid,
   .gallery-grid-custom,
   .contact-layout-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-split-grid {
+    gap: 40px;
+  }
+
+  .scholarship-grid {
+    gap: 40px;
   }
 
   .footer-main-grid {
@@ -1591,6 +1833,42 @@ textarea.form-control-custom {
     padding: 64px 0;
   }
 
+  .hero-carousel-wrapper {
+    min-height: 400px;
+  }
+
+  .hero-slide {
+    min-height: 400px;
+  }
+
+  .hero-overlay-content {
+    background: linear-gradient(180deg, rgba(11, 18, 38, 0.92) 0%, rgba(11, 18, 38, 0.8) 60%, rgba(11, 18, 38, 0.5) 100%);
+    align-items: flex-start;
+    padding: 40px 24px;
+  }
+
+  .hero-title-main {
+    font-size: 2rem;
+  }
+
+  .hero-desc-text {
+    font-size: 0.95rem;
+  }
+
+  .carousel-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .carousel-arrow-left {
+    left: 12px;
+  }
+
+  .carousel-arrow-right {
+    right: 12px;
+  }
+
   .career-grid {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -1600,8 +1878,41 @@ textarea.form-control-custom {
     height: 320px;
   }
 
-  .campuses-grid,
-  .programs-grid-custom,
+  .about-split-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .about-split-img {
+    height: 320px;
+  }
+
+  .about-split-content .institute-name-heading {
+    font-size: 1.5rem;
+  }
+
+  .scholarship-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .scholarship-illustration {
+    order: 1;
+  }
+
+  .scholarship-content {
+    order: 0;
+  }
+
+  .scholarship-content h2 {
+    font-size: 2rem;
+  }
+
+  .programs-grid-custom {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
   .edge-grid,
   .gallery-grid-custom,
   .contact-layout-grid {
@@ -1617,7 +1928,7 @@ textarea.form-control-custom {
     margin-bottom: 24px;
   }
 
-  .cta-banner-title {
+  .section-heading-custom {
     font-size: 2rem;
   }
 
@@ -1647,6 +1958,40 @@ textarea.form-control-custom {
 
   .contact-form-card-custom {
     padding: 24px 16px;
+  }
+
+  .enquiry-popup-card {
+    padding: 28px 20px;
+    border-radius: 20px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .programs-grid-custom {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-carousel-wrapper,
+  .hero-slide {
+    min-height: 360px;
+  }
+
+  .hero-title-main {
+    font-size: 1.65rem;
+  }
+
+  .scholarship-icon-grid {
+    max-width: 240px;
+  }
+
+  .skill-courses-tabs {
+    gap: 8px;
+  }
+
+  .skill-tab-btn {
+    padding: 8px 16px;
+    font-size: 0.8rem;
   }
 }
 
@@ -2095,6 +2440,12 @@ textarea.form-control-custom {
 }
 
 @media (max-width: 768px) {
+  #homepage-featured-courses-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    margin-bottom: 32px !important;
+  }
+
   .subpage-banner {
     padding-top: calc(var(--header-height) + 32px);
     padding-bottom: 40px;
@@ -2199,5 +2550,3 @@ textarea.form-control-custom {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
-
