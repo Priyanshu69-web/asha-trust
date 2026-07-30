@@ -18,6 +18,26 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', handleScroll);
   handleScroll();
 
+  // --- HASH SCROLL OFFSET FOR FIXED HEADER ---
+  const scrollToHash = () => {
+    if (window.location.hash) {
+      const targetElement = document.querySelector(window.location.hash);
+      if (targetElement) {
+        const headerHeight = header ? header.offsetHeight : 74;
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - (headerHeight + 24);
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+  };
+
+  if (window.location.hash) {
+    setTimeout(scrollToHash, 150);
+  }
+  window.addEventListener('hashchange', scrollToHash);
+
   // --- MOBILE DRAWER INTERACTION ---
   const menuToggle = document.getElementById('menu-toggle');
   const navLinks = document.getElementById('nav-links');
