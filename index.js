@@ -250,6 +250,103 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- POPUP CSR ENQUIRY MODAL ---
+  const csrEnquiryPopup = document.getElementById('csr-enquiry-popup');
+  const closeCsrPopupBtn = document.getElementById('csr-close-popup');
+  const csrPopupForm = document.getElementById('csr-popup-enquiry-form');
+  const csrFormWrapper = document.getElementById('csr-enquiry-form-wrapper');
+  const csrSuccessMsg = document.getElementById('csr-popup-success-msg');
+
+  const openCsrPopup = () => {
+    if (csrEnquiryPopup) {
+      if (csrFormWrapper) csrFormWrapper.style.display = 'block';
+      if (csrSuccessMsg) csrSuccessMsg.style.display = 'none';
+      if (csrPopupForm) csrPopupForm.reset();
+      csrEnquiryPopup.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  const closeCsrPopup = () => {
+    if (csrEnquiryPopup) {
+      csrEnquiryPopup.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  };
+
+  // Wire all CSR popup trigger buttons
+  const csrPopupTriggers = document.querySelectorAll('.trigger-csr-popup');
+  csrPopupTriggers.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openCsrPopup();
+    });
+  });
+
+  if (closeCsrPopupBtn) {
+    closeCsrPopupBtn.addEventListener('click', closeCsrPopup);
+  }
+
+  if (csrEnquiryPopup) {
+    csrEnquiryPopup.addEventListener('click', (e) => {
+      if (e.target === csrEnquiryPopup) {
+        closeCsrPopup();
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && csrEnquiryPopup.classList.contains('active')) {
+        closeCsrPopup();
+      }
+    });
+  }
+
+  // Handle CSR Popup Form Submission
+  if (csrPopupForm) {
+    csrPopupForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('csr-popup-name').value.trim();
+      const email = document.getElementById('csr-popup-email').value.trim();
+      const mobile = document.getElementById('csr-popup-mobile').value.trim();
+      const organization = document.getElementById('csr-popup-org').value.trim();
+      const address = document.getElementById('csr-popup-address').value.trim();
+
+      if (!name || !email || !mobile || !organization || !address) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+
+      // Format enquiry message for WhatsApp (Mobile: 9811418383) and Mailto (Email: LMTI@ASHA-TRUST.ORG)
+      const formattedMessage = `CSR Project Enquiry:\n\nName: ${name}\nEmail: ${email}\nMobile: ${mobile}\nOrganization: ${organization}\nAddress: ${address}`;
+      
+      const waNumber = '919811418383';
+      const emailTarget = 'LMTI@ASHA-TRUST.ORG';
+      
+      const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(formattedMessage)}`;
+      const mailtoUrl = `mailto:${emailTarget}?subject=${encodeURIComponent('New CSR Project Enquiry - ' + organization)}&body=${encodeURIComponent(formattedMessage)}`;
+
+      // Update success buttons links
+      const waBtn = document.getElementById('csr-success-wa-link');
+      const mailBtn = document.getElementById('csr-success-mail-link');
+      if (waBtn) waBtn.href = waUrl;
+      if (mailBtn) mailBtn.href = mailtoUrl;
+
+      // Hide form, show success message
+      if (csrFormWrapper && csrSuccessMsg) {
+        csrFormWrapper.style.display = 'none';
+        csrSuccessMsg.style.display = 'block';
+      }
+
+      // Automatically open WhatsApp option in a new tab
+      setTimeout(() => {
+        window.open(waUrl, '_blank');
+      }, 600);
+    });
+  }
+
+
+
   // --- COURSE TABS FILTER SYSTEM ---
   const tabButtons = document.querySelectorAll('.skill-tab-btn');
   const coursesGrid = document.getElementById('courses-grid');

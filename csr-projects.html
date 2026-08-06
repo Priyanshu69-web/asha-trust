@@ -263,7 +263,7 @@
             </li>
           </ul>
 
-          <button class="btn btn-orange trigger-popup" style="margin-top: 24px">
+          <button class="btn btn-orange trigger-csr-popup" style="margin-top: 24px">
             Corporate Inquiries / Connect with Us ↗
           </button>
         </div>
@@ -371,10 +371,11 @@
         <!-- Brand column -->
         <div class="footer-brand-col">
           <a href="index.html" class="footer-logo">
-            <img src="images/logo.png" alt="Lifekare Medical and Technical Institute Logo" />
+            <img src="images/logo.png" alt="Asha Education Trust Logo" />
           </a>
+          <h4 class="footer-brand-title">Asha Education Trust</h4>
+          <span class="footer-brand-caption">A Constituent of Asha Education Trust</span>
           <p class="footer-brand-desc">
-            Asha Education Trust
             Lifekare Medical and Technical Institute provides high-quality
             industry-standard vocational and skill development trainings, fostering
             professional independence, corporate livelihood projects, and
@@ -438,7 +439,11 @@
           <h4>Get In Touch</h4>
           <div class="footer-contact-address">
             <span>📍</span>
-            <span>M-22, Old DLF Commercial Complex, Sector-14, Gurugram</span>
+            <div>
+              <strong style="text-transform: uppercase; display: block; font-size: 0.88rem; color: var(--color-navy-dark);">LMTI</strong>
+              <span style="font-size: 0.78rem; font-weight: 600; color: var(--color-primary); display: block; margin-bottom: 2px;">A constituent of Asha Education Trust</span>
+              <span>M-22, Old DLF Commercial Complex, Sector-14, Gurugram</span>
+            </div>
           </div>
           <div class="footer-contact-address">
             <span>📞</span>
@@ -538,6 +543,60 @@
           Thank you for your interest. Our admissions counselor will get in
           touch with you shortly.
         </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- --- REUSABLE POPUP CSR ENQUIRY MODAL --- -->
+  <div class="enquiry-popup-overlay" id="csr-enquiry-popup">
+    <div class="enquiry-popup-card">
+      <span class="enquiry-popup-close" id="csr-close-popup">&times;</span>
+      <div id="csr-enquiry-form-wrapper">
+        <h3 class="enquiry-popup-title">CSR Project Enquiry</h3>
+        <p class="enquiry-popup-subtitle">
+          Partner with LMTI for impactful CSR skilling initiatives. Fill in your details below.
+        </p>
+        <form id="csr-popup-enquiry-form">
+          <div class="form-group-custom">
+            <label for="csr-popup-name">Full Name*</label>
+            <input type="text" id="csr-popup-name" class="form-control-custom" placeholder="Enter Full Name" required />
+          </div>
+          <div class="form-group-custom">
+            <label for="csr-popup-email">Official Email Address*</label>
+            <input type="email" id="csr-popup-email" class="form-control-custom" placeholder="Enter Official Email Address" required />
+          </div>
+          <div class="form-group-custom">
+            <label for="csr-popup-mobile">Mobile Number*</label>
+            <input type="tel" id="csr-popup-mobile" class="form-control-custom" placeholder="Enter 10-Digit Mobile Number" pattern="[0-9]{10}" required />
+          </div>
+          <div class="form-group-custom">
+            <label for="csr-popup-org">Organization / Company Name*</label>
+            <input type="text" id="csr-popup-org" class="form-control-custom" placeholder="Enter Organization Name" required />
+          </div>
+          <div class="form-group-custom">
+            <label for="csr-popup-address">Organization Address*</label>
+            <textarea id="csr-popup-address" class="form-control-custom" rows="3" placeholder="Enter Complete Organization Address" required></textarea>
+          </div>
+          <button type="submit" class="enquiry-popup-submit">
+            Submit CSR Enquiry ↗
+          </button>
+        </form>
+      </div>
+      <div class="enquiry-popup-success" id="csr-popup-success-msg">
+        <div class="success-icon-box">✓</div>
+        <h4>CSR Enquiry Generated!</h4>
+        <p>
+          Thank you for reaching out. Your enquiry details have been generated for:
+          <br><strong>Mobile: 9811418383</strong> | <strong>Email: LMTI@ASHA-TRUST.ORG</strong>
+        </p>
+        <div class="csr-success-actions">
+          <a href="#" id="csr-success-wa-link" target="_blank" rel="noopener" class="csr-action-btn-wa">
+            💬 Send via WhatsApp (9811418383)
+          </a>
+          <a href="#" id="csr-success-mail-link" class="csr-action-btn-mail">
+            ✉️ Send via Email (LMTI@ASHA-TRUST.ORG)
+          </a>
+        </div>
       </div>
     </div>
   </div>

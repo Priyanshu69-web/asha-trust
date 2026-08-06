@@ -228,7 +228,9 @@ textarea {
 
 /* Primary Navigation */
 .primary-header {
-  height: 74px;
+  min-height: 84px;
+  height: auto;
+  padding: 8px 0;
   display: flex;
   align-items: center;
 }
@@ -241,8 +243,9 @@ textarea {
 }
 
 .logo-container img {
-  height: 44px;
+  height: 68px;
   width: auto;
+  max-height: 72px;
 }
 
 .nav-links {
@@ -659,10 +662,12 @@ textarea {
 
 .enquiry-popup-card {
   background-color: var(--color-bg-white);
-  border-radius: 24px;
-  padding: 40px;
+  border-radius: 20px;
+  padding: 22px 28px;
   max-width: 480px;
   width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
   position: relative;
   box-shadow: 0 32px 64px rgba(0, 0, 0, 0.2);
   transform: scale(0.92) translateY(20px);
@@ -675,17 +680,17 @@ textarea {
 
 .enquiry-popup-close {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 36px;
-  height: 36px;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background-color: var(--color-bg-light);
   color: var(--color-text-muted);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   cursor: pointer;
   transition: var(--transition-fast);
   border: 1px solid var(--color-border);
@@ -700,37 +705,38 @@ textarea {
 
 .enquiry-popup-title {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--color-navy-dark);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .enquiry-popup-subtitle {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--color-text-muted);
-  margin-bottom: 28px;
+  margin-bottom: 14px;
+  line-height: 1.4;
 }
 
 .enquiry-popup-card .form-group-custom {
-  margin-bottom: 18px;
+  margin-bottom: 10px;
 }
 
 .enquiry-popup-card .form-group-custom label {
   display: block;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--color-text-dark);
-  margin-bottom: 6px;
+  margin-bottom: 3px;
 }
 
 .enquiry-popup-card .form-control-custom {
   width: 100%;
   background-color: var(--color-bg-light);
   border: 1.5px solid var(--color-border);
-  border-radius: 10px;
-  padding: 12px 16px;
-  font-size: 0.92rem;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.88rem;
   color: var(--color-text-dark);
   transition: var(--transition-fast);
 }
@@ -743,16 +749,16 @@ textarea {
 
 .enquiry-popup-submit {
   width: 100%;
-  padding: 14px;
+  padding: 10px 14px;
   background-color: var(--color-primary);
   color: var(--color-text-light);
   border: none;
-  border-radius: 12px;
+  border-radius: 10px;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.95rem;
   cursor: pointer;
   transition: var(--transition-normal);
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
 .enquiry-popup-submit:hover {
@@ -794,6 +800,81 @@ textarea {
   font-size: 0.95rem;
   color: var(--color-text-muted);
 }
+
+/* --- CSR SPECIFIC POPUP STYLES --- */
+.csr-popup-badge {
+  display: inline-block;
+  background-color: var(--color-navy-dark);
+  color: var(--color-accent-amber);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 12px;
+  border-radius: 50px;
+  margin-bottom: 12px;
+}
+
+.enquiry-popup-card textarea.form-control-custom {
+  resize: vertical;
+  min-height: 70px;
+  font-family: inherit;
+}
+
+.csr-success-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.csr-action-btn-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 16px;
+  background-color: #25d366;
+  color: white;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.csr-action-btn-wa:hover {
+  background-color: #1eb956;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
+}
+
+.csr-action-btn-mail {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 16px;
+  background-color: var(--color-navy-dark);
+  color: white;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.csr-action-btn-mail:hover {
+  background-color: var(--color-navy);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(11, 18, 38, 0.3);
+}
+
+
 
 /* --- PARTNERS MARQUEE SECTION --- */
 .partners-section {
@@ -1020,8 +1101,11 @@ textarea {
 
 .about-split-content .institute-name-heading {
   font-family: var(--font-heading);
-  font-size: 2rem;
-  font-weight: 800;
+  font-size: clamp(0.95rem, 2.1vw, 1.4rem);
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  white-space: nowrap;
   line-height: 1.2;
   margin-bottom: 8px;
 }
@@ -1391,16 +1475,23 @@ textarea {
 }
 
 .edge-icon-box {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
+  width: 76px;
+  height: 76px;
+  border-radius: 18px;
   background-color: var(--color-primary-light);
   color: var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
-  margin-bottom: 24px;
+  font-size: 2.6rem;
+  margin-bottom: 20px;
+  transition: var(--transition-fast);
+}
+
+.edge-card:hover .edge-icon-box {
+  transform: scale(1.1);
+  background-color: var(--color-primary);
+  color: white;
 }
 
 .edge-card-title {
@@ -1830,18 +1921,41 @@ textarea.form-control-custom {
 .footer-brand-col {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .footer-logo img {
-  height: 40px;
+  height: 48px;
   width: auto;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
+}
+
+.footer-brand-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-navy-dark);
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+.footer-brand-caption {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+  display: block;
+  text-align: center;
 }
 
 .footer-brand-desc {
   font-size: 0.88rem;
   color: var(--color-text-muted);
-  line-height: 1.6;
+  line-height: 1.5;
+  text-align: center;
 }
 
 .footer-links-col h4 {
