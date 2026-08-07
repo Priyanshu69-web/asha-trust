@@ -1689,6 +1689,10 @@ textarea {
   object-fit: cover;
 }
 
+.gallery-card-vertical {
+  aspect-ratio: 3/4 !important;
+}
+
 .gallery-card-overlay {
   position: absolute;
   top: 0;
