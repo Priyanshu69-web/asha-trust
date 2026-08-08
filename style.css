@@ -430,7 +430,7 @@ textarea {
 .hero-top-image {
   width: 60%;
   max-width: 540px;
-  margin-bottom: 16px;
+  margin: 0 auto 16px;
   overflow: hidden;
   border-radius: 24px;
 }
@@ -1119,6 +1119,7 @@ textarea {
   white-space: normal;
   word-break: break-word;
   line-height: 1.2;
+  text-align: center;
   margin-bottom: 8px;
 }
 
