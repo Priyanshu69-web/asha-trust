@@ -3012,7 +3012,7 @@ textarea.form-control-custom {
 
 .program-detail-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 64px;
   margin-bottom: 96px;
 }
