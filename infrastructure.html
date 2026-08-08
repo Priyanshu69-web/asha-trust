@@ -34,8 +34,8 @@
             <li>
               <a href="index.html" class="nav-item-link" id="nav-home">Home</a>
             </li>
-            <li>
-              <a href="programs.html" class="nav-item-link" id="nav-programs">
+            <li class="nav-dropdown">
+              <a href="programs.html" class="nav-item-link nav-dropdown-toggle" id="nav-programs" aria-haspopup="true">
                 Programs
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em">
                   <path fill="currentColor" fill-rule="evenodd"
@@ -43,6 +43,12 @@
                     clip-rule="evenodd"></path>
                 </svg>
               </a>
+              <ul class="nav-submenu" aria-label="Programs submenu">
+                <li><a href="programs.html#nursing" class="nav-item-link nav-submenu-link">Nursing Courses</a></li>
+                <li><a href="programs.html#allied-healthcare-professions" class="nav-item-link nav-submenu-link">Allied Healthcare Professions</a></li>
+                <li><a href="programs.html#skill-development" class="nav-item-link nav-submenu-link">Skill Trainings</a></li>
+                <li><a href="programs.html#first-responder" class="nav-item-link nav-submenu-link">First Aid Trainings</a></li>
+              </ul>
             </li>
             <li>
               <a href="csr-projects.html" class="nav-item-link" id="nav-campuses">CSR Projects</a>
